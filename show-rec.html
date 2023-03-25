@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>show-rec</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="show-rec_files/libs/clipboard/clipboard.min.js"></script>
+<script src="show-rec_files/libs/quarto-html/quarto.js"></script>
+<script src="show-rec_files/libs/quarto-html/popper.min.js"></script>
+<script src="show-rec_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="show-rec_files/libs/quarto-html/anchor.min.js"></script>
+<link href="show-rec_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="show-rec_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="show-rec_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="show-rec_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="show-rec_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        if (typeof require !== 'undefined') {
+        require.undef("plotly");
+        requirejs.config({
+            paths: {
+                'plotly': ['https://cdn.plot.ly/plotly-2.18.0.min']
+            }
+        });
+        require(['plotly'], function(Plotly) {
+            window._Plotly = Plotly;
+        });
+        }
+        </script>
+        
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="hw2-web-scraping-and-recommendation-system-building" class="level1">
+<h1>HW2: Web scraping and recommendation system building</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Ever spend over half an hour trying to look for a good show, or movie to watch on the weekend? Ever feel like none of the tiktok videos or spotify daily recommendations are interesting enough to keep you on the app? It is probably because the platforms’ “recommendation systems” are not performing well to suggest content that suits your tastes. Reommendation systems suggest content that you might like based on your previous selections and overall user profile, and are tools pivotal to many entertainment&amp;streaming services. While scalable and precise recommendation systems require in-depth understanding of user behaviours and typically involve machine learning models, there are ways to make recommendations based on simpler tools. In this blog, we will be using webscraping to answer the following questions:</p>
+<p><strong>What movie or TV shows share actors with your favorite movie or show?</strong></p>
+<p>To answer this question, we would be crawling through the movie database (TMDB) and forage shows/movies that share the same cast as your favourite movie/show to come up with a list of recommendations.</p>
+<p>repository to this blogpost: ‘https://github.com/linnilinnil/Shows-recommendation-system’</p>
+</section>
+<section id="setting-up" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up">Setting up</h2>
+<p>For demonstration, I would be picking an all-time classic —— The Godfather (part II). Let’s save the link for now: https://www.themoviedb.org/movie/240-the-godfather-part-ii and check out what the page displays. To examine the source code of the site, we can use inspect to look at what content is hosted under what section of the page.</p>
+</section>
+<section id="dry-run-navigation" class="level2">
+<h2 class="anchored" data-anchor-id="dry-run-navigation">Dry-run navigation</h2>
+<p>We will practice clicking through the navigation our scraper would be going through, try a few things in the scrapy shell, and look for potentially interesting elements on the page.</p>
+<p>The link to the movie page could be decomposed into the following parts:<br>
+- https: hypertext transfer protocal secure. a set of rules that the transfer of data on the world wide web. - themoviedb: the domain name - org: domain extension, indicates what type of site the movie db is (organizational site) - 240-the-godfather-part-ii: directory, file path, address to specific resource locations within the site folders</p>
+<p>Taking a closer look at each section and inspecting the source code, we see:</p>
+<ul>
+<li><p>Top Billed cast: under <code>&lt;section class="panel top_billed scroller"&gt;</code> (note here there are three classes separated by space. one of them is top_billed which is unique.)<br>
+The name of the cast can be found in the alternative text for the image (<code>&lt;img ... alt=" " ...</code>), and the text for the second link (the first one is to the image)</p></li>
+<li><p>Full Cast &amp; Crew: by clicking this link, we would be transfered to a page showing the cast &amp; crew list of the movie. The link is https://www.themoviedb.org/movie/240-the-godfather-part-ii/cast, indicating the content is put under a subfolder of the movie, <code>/cast</code>.</p></li>
+</ul>
+<p>We keep traversing by going into Al Pacino’s actor page https://www.themoviedb.org/person/1158-al-pacino:</p>
+<ul>
+<li>Known For: list a series of the most known works Al Pacino, including classcis like the the Godfather, Scarface (but not Scent of a Woman and Dog Day Afternoon).<br>
+Under a div with the id “known_for”, where names of work are enclosed within the<code>&lt;bdi&gt;</code> tags.</li>
+<li>Actor name: the name Al Pacino is mentioned throughout the page. One way to get the name is from parsing the title of the page: <strong>Al Pacino — The Movie Database (TMDB)</strong></li>
+<li>List of works: there is an option to filter for ‘Acting’ in the Deparment dropdown. We would end up with the link https://www.themoviedb.org/person/1158-al-pacino?credit_department=Acting which is the original link with ?credit_department=Acting in the end (additional argument pass along the request to the site)</li>
+<li>Indiviaul work: put under table (one for each year) with the class name “credit_group”. The name of the work is enclosed within a pair of <code>&lt;bdi&gt;</code> tag.</li>
+</ul>
+</section>
+<section id="initializing-the-project" class="level2">
+<h2 class="anchored" data-anchor-id="initializing-the-project">Initializing the project</h2>
+<ol type="1">
+<li>Create a new GitHub repository, and sync it with GitHub Desktop. This repository will house your scraper. You should commit and push each time you make significant changes to your code. Use the following commands in the terminal.</li>
+</ol>
+<pre><code>cd dir    
+git init    
+git remote add origin [link to Github repo]    
+git add .    
+git commit -m [message if u want to add description to the commit]    
+git push -u origin main  </code></pre>
+<p>Open a terminal in the location of your repository on your laptop, and type:</p>
+<pre><code>scrapy startproject TMDB_scraper
+cd TMDB_scraper</code></pre>
+<p>You will notice the folder now looks like: TMDB_scraper/ scrapy.cfg # deploy configuration file</p>
+<pre><code>tutorial/             # project's Python module, you'll import your code from here
+    __init__.py
+
+    items.py          # project items definition file
+
+    middlewares.py    # project middlewares file
+
+    pipelines.py      # project pipelines file
+
+    settings.py       # project settings file
+
+    spiders/          # a directory where you'll later put your spiders
+        __init__.py</code></pre>
+</section>
+<section id="tweak-settings-of-the-web-scraper" class="level2">
+<h2 class="anchored" data-anchor-id="tweak-settings-of-the-web-scraper">Tweak settings of the web scraper</h2>
+<p>For now, add the following line to the file settings.py:</p>
+<p><code>CLOSESPIDER_PAGECOUNT = 20</code></p>
+<p>This line just prevents your scraper from downloading too much data while you’re still testing things out. You’ll remove this line later.</p>
+<p><strong>Hint: Running into 403 Forbidden error?</strong><br>
+Sometimes a request gets 403 Forbidden error in response from the site. This occurs when you are not permitted to access a web page. There is nothing wrong with the connection, but the site’s server just says ‘No’ to you ¯_ (ツ)_/¯</p>
+<p>To address this problem, let’s take a closer look at the settings.py file. Find the <code>USER_AGENT</code> section, you will see that the default setting will have you self identified as a scrapy bot, which would very likely get you rejected from the site. We can change this to a more ‘real user-like’ user agent. A more convenient way of configuring your identity is by modifying the header (override the <code>DEFULAT_HEADER</code> setting).</p>
+<p><strong>What is a request header and where can I find mine?</strong> A request header is an HTTP header that can be used in an HTTP request to provide information about the request context, so that the server can tailor the response. It would usually include specification of the user_agent.</p>
+<p>To find the header your computer sends to the site, go to the <code>Netowrk</code> nab in the inspect window, and use keyboard shortcut to refresh the page. Search for User-Agent, and you will see (at least part of) your request header. Copy paste that to the settings file. As an example, I use:</p>
+<pre><code>DEFAULT_REQUEST_HEADERS = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Accept-Encoding": "gzip, deflate",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-User": "?1",
+        "Cache-Control": "max-age=0",
+    }</code></pre>
+</section>
+<section id="creating-your-own-scraper" class="level2">
+<h2 class="anchored" data-anchor-id="creating-your-own-scraper">Creating your own scraper</h2>
+<p>Create a file inside the spiders directory called tmdb_spider.py. Add the following lines to the file.<br>
+Replace the entry of start_urls with the URL corresponding to your favorite movie or TV show.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to run </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># scrapy crawl tmdb_spider -o movies.csv</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scrapy</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TMDB_Spider(scrapy.Spider):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="st">'TMDB_Spider'</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    start_urls <span class="op">=</span> [<span class="st">'https://www.themoviedb.org/movie/240-the-godfather-part-ii'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, we will implement the three parsing methods for the TMDB_Spider class to parse the start page, the cast&amp;crew page, and the individual actor/actress page individually.</p>
+<section id="parseslef-response" class="level3">
+<h3 class="anchored" data-anchor-id="parseslef-response">parse(slef, response):</h3>
+<p>This function should assume that you start on a movie page, and then navigate to the Cast &amp; Crew page. Remember that this page has url <movie_url>cast. (You are allowed to hardcode that part.)</movie_url></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse(<span class="va">self</span>, response):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">        main parser that starts from the favourite movie page and goes to the cast page</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">#since we already know the pattern, we will just hardcode the page to the cast&amp;crew</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        cast_url <span class="op">=</span> <span class="va">self</span>.start_urls[<span class="dv">0</span>] <span class="op">+</span> <span class="st">'/cast'</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">#then we proceed to calling the parse_full_credits method with the new url</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> scrapy.Request(url<span class="op">=</span>cast_url, callback<span class="op">=</span><span class="va">self</span>.parse_full_credits)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This methods does not return anything to the output csv file. We would just be jumping to the next parser for the cast&amp;crew page. The <code>scrapy.Request</code> function representas an HTTP request, which is usually generated in a Spider and executed by the Downloader, thus generating a Response. The url would be the url to the Cast&amp;Crew page, while the callback is the function that will be called with the response of this request (once it’s downloaded) as its first parameter. In this scenario, we would be using the parse_full_credits function which we will defined next to parse the Cast&amp;Crew page</p>
+</section>
+<section id="parse_full_creditsself-response" class="level3">
+<h3 class="anchored" data-anchor-id="parse_full_creditsself-response">parse_full_credits(self, response)</h3>
+<p>This function should assume that you start on the Cast &amp; Crew page. Its purpose is to yield a scrapy.Request for the page of each actor listed on the page. Crew members are not included. The yielded request should specify the method parse_actor_page(self, response) should be called when the actor’s page is reached. The parse_full_credits() method does not return any data. This method should be no more than 5 lines of code, excluding comments and docstrings.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_full_credits(<span class="va">self</span>, response):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    cast&amp;crew page parser that traverses through pages of all the cast of the movie</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the cast information is put under the ol (ordered lists) with class name "people" and "credits "</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the link to individual cast page is put in &lt;a href = [relative path]&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    castlinks <span class="op">=</span> response.css(<span class="st">"ol"</span>)[<span class="dv">0</span>].css(<span class="st">"div.info"</span>).css(<span class="st">"a::attr(href)"</span>).getall()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we can hardcode the link to filter for works the person act in</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># use list comprehension to generate the list of cast pages</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    castlinks <span class="op">=</span> [i<span class="op">+</span><span class="st">"?credit_department=Acting"</span> <span class="cf">for</span> i <span class="kw">in</span> castlinks]</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    casts <span class="op">=</span> [response.urljoin(link) <span class="cf">for</span> link <span class="kw">in</span> castlinks]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cast <span class="kw">in</span> casts:</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> scrapy.Request(cast, callback <span class="op">=</span> <span class="va">self</span>.parse_actor_page)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We mainly use the css selector and the urljoin method to get the links to the pages of individual cast members. After getting a list of links to the cast members, we traverse them one by one using a for loop. For each link, we would be calling the parse_actor_page function which we will define next to process the page of the actor/actress.</p>
+</section>
+<section id="parse_actor_pageself-response" class="level3">
+<h3 class="anchored" data-anchor-id="parse_actor_pageself-response">parse_actor_page(self, response):</h3>
+<p>This function should assume that you start on the page of an actor. It should yield a dictionary with two key-value pairs, of the form {“actor” : actor_name, “movie_or_TV_name” : movie_or_TV_name}. The method should yield one such dictionary for each of the movies or TV shows on which that actor has worked. Note that you will need to determine both the name of the actor and the name of each movie or TV show. This method should be no more than 15 lines of code, excluding comments and docstrings.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_actor_page(<span class="va">self</span>, response):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">       start on the page of actor, yield information about the actor's work</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">#get actor name: actor name is in the title of the page before the '-' dash symbol</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> response.css(<span class="st">"title::text"</span>).get()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        actor_name <span class="op">=</span> title.split(<span class="st">" —"</span>)[<span class="dv">0</span>]</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># acting infromation is put under the first table with class 'card' and 'credits'</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># enclosed in &lt;bdi&gt; is the name of the work</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        shows <span class="op">=</span> response.css(<span class="st">"table.credits"</span>)[<span class="dv">0</span>].css(<span class="st">"bdi::text"</span>).getall()</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> work <span class="kw">in</span> shows:</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">yield</span> {<span class="st">"actor"</span> : actor_name, <span class="st">"show_name"</span> : work}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As discussed in the dry navigation section, we can find where to look for the information we want through examining html tags and css attributes through the inspect tool of the browser. This functions would actually return a dictionary containing the recommended work to the final csv. output.</p>
+<p>Provided that these methods are correctly implemented, you can run the command <strong>(please run this in the project directory!)</strong></p>
+<pre><code>scrapy crawl tmdb_spider -o results.csv</code></pre>
+<p>to create a .csv file with a column for actors and a column for movies or TV shows.</p>
+<p>Once your spider is fully written, comment out the line</p>
+<pre><code>CLOSESPIDER_PAGECOUNT = 20</code></pre>
+<p>in the settings.py file to get the full results.</p>
+</section>
+<section id="experimentation-in-the-scrapy-shell" class="level3">
+<h3 class="anchored" data-anchor-id="experimentation-in-the-scrapy-shell">Experimentation in the scrapy shell:</h3>
+<p>Some of the following commands might be helpful for trying things:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#In terminal</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>scrapy shell https:<span class="op">//</span>www.themoviedb.org<span class="op">/</span>movie<span class="op">/</span><span class="dv">240</span><span class="op">-</span>the<span class="op">-</span>godfather<span class="op">-</span>part<span class="op">-</span>ii</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#In scrapy shell</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>response.css(<span class="st">'div'</span>).attrib</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#to fetch a new url</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>fetch([url],redirect<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="ideas-for-building-a-slightly-better-rec-system" class="level2">
+<h2 class="anchored" data-anchor-id="ideas-for-building-a-slightly-better-rec-system">Ideas for building a slightly better rec system</h2>
+<ul>
+<li><p>We cam make the recommendations a little bit more accurate by only including only the top-billed cast by examining the top-billed casts section of the movie/show’s page. Or, excluding the uncredited cast members who only make minor/trivial appearances by filtering out cast members whose character description includes ‘(uncredited)’.</p></li>
+<li><p>When examining individual cast’s work, we can only include TV shows that they are main characters in, and/or movies that they are top-billed casts in. (This would include examining movies/tv shows separately through the the ‘All’ drop-down menu and further visiting the page of individual work to get top-billed casts and episodes information).</p></li>
+<li><p>We can also include the keywords section in our scraping so we can filter for work with similar keywords in the final results.</p></li>
+</ul>
+</section>
+<section id="making-recommendations" class="level2">
+<h2 class="anchored" data-anchor-id="making-recommendations">Making recommendations</h2>
+<p>To decrease the amount of scraping, I implement one of the improvement ideas from above - excluding the uncredited cast. The final code for the parse_full_credits method is as following:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_full_credits(<span class="va">self</span>, response):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">        cast&amp;crew page parser that traverses through pages of all the cast of the movie</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># the cast information is put under the ol (ordered lists) with class name "people" and "credits "</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># get characters information corresponding to each cast member from the &lt;p&gt; tag with class name character</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        characters <span class="op">=</span> response.css(<span class="st">"ol"</span>)[<span class="dv">0</span>].css(<span class="st">"p.character::text"</span>).getall()</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># the link to individual cast page is put in &lt;a href = [relative path]&gt;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        castlinks <span class="op">=</span> response.css(<span class="st">"ol"</span>)[<span class="dv">0</span>].css(<span class="st">"div.info"</span>).css(<span class="st">"a::attr(href)"</span>).getall()</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">#use list comprehension to exclude uncredited cast members' pages</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        creditedlinks <span class="op">=</span> [castlinks[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(castlinks)) <span class="cf">if</span> <span class="st">"(uncredited)"</span> <span class="kw">not</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    ...:  <span class="kw">in</span> characters[i]]</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># we can hardcode the link to filter for works the person act in</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># use list comprehension to generate the list of cast pages</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        creditedlinks <span class="op">=</span> [i<span class="op">+</span><span class="st">"?credit_department=Acting"</span> <span class="cf">for</span> i <span class="kw">in</span> creditedlinks]</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        casts <span class="op">=</span> [response.urljoin(link) <span class="cf">for</span> link <span class="kw">in</span> creditedlinks]</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> cast <span class="kw">in</span> casts:</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">yield</span> scrapy.Request(cast, callback <span class="op">=</span> <span class="va">self</span>.parse_actor_page)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, we read in the final lists of movies/shows.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fav <span class="op">=</span> <span class="st">"The Godfather Part II"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>rec <span class="op">=</span> pd.read_csv(<span class="st">"/Users/linlin/Desktop/2023/16b/rec/TMDB_scraper/movies-updated.csv"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>rec <span class="op">=</span> rec[rec[<span class="st">"show_name"</span>] <span class="op">!=</span> fav]</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>rec.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>actor</th>
+      <th>show_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Al Pacino</td>
+      <td>Knox Goes Away</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Al Pacino</td>
+      <td>Sniff</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Al Pacino</td>
+      <td>Billy Knight</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Al Pacino</td>
+      <td>King Lear</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Al Pacino</td>
+      <td>Brad Pitt: More Than a Pretty Face</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Once you’re happy with the operation of your spider, compute a sorted list with the top movies and TV shows that share actors with your favorite movie or TV show. For example, it may have two columns: one for “movie names” and “number of shared actors”.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">sorted</span> <span class="op">=</span> rec.groupby(<span class="st">"show_name"</span>).count().sort_values([<span class="st">'actor'</span>], ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>picks <span class="op">=</span> <span class="bu">sorted</span>.reset_index().head(<span class="dv">15</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>picks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>show_name</th>
+      <th>actor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mario Puzo's The Godfather: The Complete Novel...</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The Godfather</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>'The Godfather' Family: A Look Inside</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kojak</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>The Godfather Part III</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Mannix</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>The Godfather Trilogy: 1901-1980</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Tales from the Darkside</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Becoming Al Pacino</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>The Rockford Files</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>The F.B.I.</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Hill Street Blues</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Jake and the Fatman</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Night of 100 Stars</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>The Oscars</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">"notebook_connected"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pl <span class="op">=</span> px.histogram(picks,hover_name<span class="op">=</span><span class="st">"show_name"</span>,x <span class="op">=</span> <span class="st">"show_name"</span>,y<span class="op">=</span><span class="st">"actor"</span>,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                  title <span class="op">=</span> <span class="st">"Top recommendations with the most shared actors w/ 'The Godfather II'"</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                    text_auto<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>pl.update_layout(</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    yaxis_title<span class="op">=</span><span class="st">"num. of shared actors"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"movie/tv name"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    margin<span class="op">=</span>{<span class="st">"r"</span>:<span class="dv">0</span>,<span class="st">"t"</span>:<span class="dv">30</span>,<span class="st">"l"</span>:<span class="dv">0</span>,<span class="st">"b"</span>:<span class="dv">0</span>},</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>                      font<span class="op">=</span>{<span class="st">"size"</span> : <span class="dv">8</span>}</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>)  </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>pl.update_traces(</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    hovertemplate <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    hoverinfo <span class="op">=</span> <span class="st">"skip"</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>pl.show()</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>                            <div id="d4e2d94a-5f8f-43b7-a1dd-451497118c1a" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("d4e2d94a-5f8f-43b7-a1dd-451497118c1a")) {                    Plotly.newPlot(                        "d4e2d94a-5f8f-43b7-a1dd-451497118c1a",                        [{"alignmentgroup":"True","bingroup":"x","histfunc":"sum","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","offsetgroup":"","orientation":"v","showlegend":false,"texttemplate":"%{value}","x":["Mario Puzo's The Godfather: The Complete Novel for Television","The Godfather","'The Godfather' Family: A Look Inside","Kojak","The Godfather Part III","Mannix","The Godfather Trilogy: 1901-1980","Tales from the Darkside","Becoming Al Pacino","The Rockford Files","The F.B.I.","Hill Street Blues","Jake and the Fatman","Night of 100 Stars","The Oscars"],"xaxis":"x","y":[23,18,8,8,7,7,6,6,6,6,6,5,5,5,5],"yaxis":"y","type":"histogram","hoverinfo":"skip"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"movie/tv name"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"num. of shared actors"}},"legend":{"tracegroupgap":0},"title":{"text":"Top recommendations with the most shared actors w/ 'The Godfather II'"},"barmode":"relative","margin":{"r":0,"t":30,"l":0,"b":0},"font":{"size":8}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('d4e2d94a-5f8f-43b7-a1dd-451497118c1a');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
